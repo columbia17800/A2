@@ -107,6 +107,10 @@
     <ClCompile Include="Common\GeometryGenerator.cpp" />
     <ClCompile Include="Common\MathHelper.cpp" />
     <ClCompile Include="FrameResource.cpp" />
+    <ClCompile Include="LoadM3d.cpp" />
+    <ClCompile Include="ShadowMap.cpp" />
+    <ClCompile Include="SkinnedData.cpp" />
+    <ClCompile Include="Ssao.cpp" />
     <ClCompile Include="TexColumnsApp.cpp" />
     <ClCompile Include="Waves.cpp" />
   </ItemGroup>
@@ -121,6 +125,10 @@
     <ClInclude Include="Common\MathHelper.h" />
     <ClInclude Include="Common\UploadBuffer.h" />
     <ClInclude Include="FrameResource.h" />
+    <ClInclude Include="LoadM3d.h" />
+    <ClInclude Include="ShadowMap.h" />
+    <ClInclude Include="SkinnedData.h" />
+    <ClInclude Include="Ssao.h" />
     <ClInclude Include="Waves.h" />
   </ItemGroup>
   <ItemGroup>

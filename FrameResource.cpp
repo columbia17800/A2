@@ -1,6 +1,6 @@
 #include "FrameResource.h"
 
-FrameResource::FrameResource(ID3D12Device* device, UINT passCount, UINT objectCount, UINT materialCount, UINT waveVertCount)
+FrameResource::FrameResource(ID3D12Device* device, UINT passCount, UINT objectCount, UINT skinnedObjectCount, UINT materialCount, UINT waveVertCount)
 {
     ThrowIfFailed(device->CreateCommandAllocator(
         D3D12_COMMAND_LIST_TYPE_DIRECT,
@@ -8,10 +8,13 @@ FrameResource::FrameResource(ID3D12Device* device, UINT passCount, UINT objectCo
 
   //  FrameCB = std::make_unique<UploadBuffer<FrameConstants>>(device, 1, true);
     PassCB = std::make_unique<UploadBuffer<PassConstants>>(device, passCount, true);
-    MaterialCB = std::make_unique<UploadBuffer<MaterialConstants>>(device, materialCount, true);
+    // MaterialCB = std::make_unique<UploadBuffer<MaterialConstants>>(device, materialCount, true);
+	MaterialBuffer = std::make_unique<UploadBuffer<MaterialData>>(device, materialCount, false);
     ObjectCB = std::make_unique<UploadBuffer<ObjectConstants>>(device, objectCount, true);
 
     WavesVB = std::make_unique<UploadBuffer<Vertex>>(device, waveVertCount, false);
+	SsaoCB = std::make_unique<UploadBuffer<SsaoConstants>>(device, 1, true);
+	SkinnedCB = std::make_unique<UploadBuffer<SkinnedConstants>>(device, skinnedObjectCount, true);
 }
 
 FrameResource::FrameResource(ID3D12Device* device, UINT passCount, UINT objectCount, UINT materialCount)
@@ -22,7 +25,7 @@ FrameResource::FrameResource(ID3D12Device* device, UINT passCount, UINT objectCo
 
 	//  FrameCB = std::make_unique<UploadBuffer<FrameConstants>>(device, 1, true);
 	PassCB = std::make_unique<UploadBuffer<PassConstants>>(device, passCount, true);
-	MaterialCB = std::make_unique<UploadBuffer<MaterialConstants>>(device, materialCount, true);
+	// MaterialCB = std::make_unique<UploadBuffer<MaterialConstants>>(device, materialCount, true);
 	ObjectCB = std::make_unique<UploadBuffer<ObjectConstants>>(device, objectCount, true);
 
 }

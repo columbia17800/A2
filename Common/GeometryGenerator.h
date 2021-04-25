@@ -114,7 +114,8 @@ public:
 
 	MeshData CreateCone(float bottomRadius, float height, uint32 sliceCount, uint32 stackCount);
 	MeshData CreateTriangularPrism(float width, float height, uint32 stackCount);
-	MeshData CreateWedge(float width, float height, float depth, uint32 numSubdivisions = 0u); 
+	MeshData CreateWedge(float width, float height, float depth, uint32 numSubdivisions = 0u);
+	MeshData CreateWedge2(float width, float height, float topDepth, float bottomDepth, uint32 numSubdivisions = 0u);
 	MeshData CreatePyramid(float bottomWidth, float topWidth, float height, uint32 stackCount = 2u);
 	MeshData CreateDiamond(float bottomRadius, float height, uint32 sliceCount, uint32 stackCount);
 	MeshData CreateTorus(float majorRadius, float minorRadius, int numMajor, int numMinor);
